@@ -2,10 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "./headers/get_info.h"
-
-#define STD_IN 0 
-#define STD_OUT 1
-#define BUF_SIZE 1024
+#include "./headers/const.h"
 
 void display_prompt(){
     char* user_name = getlogin();
