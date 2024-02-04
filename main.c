@@ -1,7 +1,6 @@
-#include <stdio.h>
-#include "./headers/get_username.h"
+#include "./headers/get_info.h"
 
 int main(){
-    printf("Hello World \n");
+    display_info();
     return 0;
 }
