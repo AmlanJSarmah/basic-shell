@@ -1,6 +1,6 @@
 #include "./headers/get_info.h"
 
 int main(){
-    display_info();
+    display_prompt();
     return 0;
 }
