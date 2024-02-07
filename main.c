@@ -1,4 +1,4 @@
-#include "./headers/get_info.h"
+#include "./headers/prompt.h"
 
 int main(){
     display_prompt();

@@ -1,7 +1,7 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "./headers/get_info.h"
+#include "./headers/prompt.h"
 #include "./headers/const.h"
 
 void display_prompt(){
