@@ -22,3 +22,14 @@ void get_args(char* args, char* command_full){
     strncpy(args, command_full + index, strlen(command_full) - 1);
     args[strlen(command_full)] = '\0';
 }
+
+void parse_args(char *args[], char *args_){
+    int index = 0;
+    char* token = strtok(args_," ");
+    args[index] = token;
+    while(token != NULL ){
+        index++;
+        token = strtok(NULL, " ");
+        args[index] = token;
+    }
+}
