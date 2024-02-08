@@ -1,6 +1,7 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <errno.h>
 #include "./headers/prompt.h"
 #include "./headers/const.h"
 
@@ -12,5 +13,8 @@ void display_prompt(){
         perror("Cannot Get Working Directory");
         exit(EXIT_FAILURE);
     }
-    printf(" (%s) %s\n", user_name, current_working_directory);
+    if(errno == 0)
+        printf(" (%s) %s  ", user_name, current_working_directory);
+    else
+        printf(" (%s) %s  ", user_name, current_working_directory);
 }
