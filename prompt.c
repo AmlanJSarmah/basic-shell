@@ -17,4 +17,5 @@ void display_prompt(){
         printf(" (%s) %s  ", user_name, current_working_directory);
     else
         printf(" (%s) %s  ", user_name, current_working_directory);
+    fflush(stdout);
 }
