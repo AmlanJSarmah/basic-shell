@@ -2,8 +2,10 @@
 #include "./headers/args.h"
 #include "./headers/const.h"
 #include "./headers/shell.h"
+#include "./headers/shell_commands.h"
 
 int main(){
+    clear();
     char command[BUF_SIZE];
     char command_main[BUF_SIZE];
     char args_[BUF_SIZE];
