@@ -8,3 +8,7 @@ void input_command(char* command){
     if(ret == -1)
         perror("READ");
 }
+
+void execute_command(char *command, char **args){
+    char* shell_built_in_commands[] = {"cd", "exit", "clear"};
+}

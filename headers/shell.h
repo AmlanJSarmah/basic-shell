@@ -2,5 +2,6 @@
 #define __SHELL__
 
 void input_command(char* command);
+void execute_command(char* command, char* args[]);
 
 #endif
