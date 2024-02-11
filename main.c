@@ -6,19 +6,17 @@
 
 int main(){
     clear();
-    char command[BUF_SIZE];
-    char command_main[BUF_SIZE];
-    char args_[BUF_SIZE];
-    char* args[ARGS_MAX];
-    display_prompt();
-    input_command(command);
-    get_command(command_main, command); 
-    int if_args_exist = get_args(args_, command);
-    if(if_args_exist == -1){
-        //do
+    while(1){
+        char command[BUF_SIZE];
+        char command_main[BUF_SIZE];
+        char args_[BUF_SIZE];
+        char* args[ARGS_MAX];
+        display_prompt();
+        input_command(command);
+        get_command(command_main, command); 
+        //get_args(args_, command);
+        //parse_args(args, args_);
+        execute_command(command_main, args); 
     }
-    else{
-        parse_args(args, args_);
-    }
-   return 0;
+    return 0;
 }
