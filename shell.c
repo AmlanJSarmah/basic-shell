@@ -12,7 +12,7 @@ void input_command(char* command){
         perror("READ");
         exit(1);
     }
-    command[ret] = '\0';
+    command[ret - 1] = '\0';
 }
 
 void execute_command(char *command, char **args){

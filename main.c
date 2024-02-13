@@ -14,8 +14,8 @@ int main(){
         display_prompt();
         input_command(command);
         get_command(command_main, command); 
-        //get_args(args_, command);
-        //parse_args(args, args_);
+        get_args(args_, command);
+        parse_args(args, args_);
         execute_command(command_main, args); 
     }
     return 0;

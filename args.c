@@ -3,21 +3,17 @@
 #include "./headers/args.h"
 
 void get_command(char* command, char* command_full){
-    //int state = 1;
     int index = 0;
     for(int i=0; i < strlen(command_full); i++){
         if(command_full[i] == ' '){
-            index = i - 1;
+            index = i;
             break;
         }
     }
     if(index == 0)
-        index = strlen(command_full) - 1;
-    printf("%d\n", index);
+        index = strlen(command_full);
     strncpy(command, command_full, index);
-    command[index + 1] = '\0';
-    printf("%s", command);
-    fflush(stdout);
+    command[index] = '\0';
 }
 
 void get_args(char* args, char* command_full){
@@ -37,7 +33,6 @@ void get_args(char* args, char* command_full){
     else{
         args = NULL;
     }
-    printf("%s",args);
 }
 
 void parse_args(char *args[], char *args_){
