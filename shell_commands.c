@@ -1,6 +1,7 @@
 #include <stdlib.h>
-#include <unistd.h>
 #include <stdio.h>
+#include <errno.h>
+#include <unistd.h>
 #include "./headers/shell_commands.h"
 
 void clear(){
@@ -10,8 +11,8 @@ void clear(){
 
 void cd(const char* path){
     int ret = chdir(path);
-    if(ret == -1){
-        perror("CHANGE DIRECTORY");
-        exit(1);
+    if(ret == -1 && errno == ENOENT){
+        printf("cd - error no such file or directory\n");
+        fflush(stdout);
     }
 }

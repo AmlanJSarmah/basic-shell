@@ -27,7 +27,7 @@ void get_args(char* args, char* command_full){
         }
     }
     if(does_args_exist){
-        strncpy(args, command_full + index, strlen(command_full) - 1);
+        strncpy(args, command_full + index, strlen(command_full));
         args[strlen(command_full)] = '\0';
     }
     else{
