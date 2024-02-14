@@ -2,6 +2,6 @@
 #define __SHELL_COMMAND__
 
 void clear();
-void cd(const char* path);
+void cd(char* path[]);
 
 #endif

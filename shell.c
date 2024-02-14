@@ -25,7 +25,7 @@ void execute_command(char *command, char **args){
         }
     }
     if(command_no == 0){
-        cd(args[0]);
+        cd(args);
     }
     else if(command_no == 1){
         exit(0);
