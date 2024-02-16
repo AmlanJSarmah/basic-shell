@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <sys/wait.h>
 #include "./headers/shell.h"
 #include "./headers/const.h"
 #include "./headers/shell_commands.h"
@@ -13,6 +14,24 @@ void input_command(char* command){
         exit(1);
     }
     command[ret - 1] = '\0';
+}
+
+void execute_process(char *command, char **args){
+    pid_t pid = fork();
+    if(pid == -1){
+        perror("FORK");
+        exit(1);
+    }
+    else if(pid == 0){
+        if(execvp(command,args) == -1){
+            perror("EXEC\n");
+        }
+        exit(0);
+    }
+    else{
+        wait(NULL);
+        return;
+    }
 }
 
 void execute_command(char *command, char **args){
@@ -34,6 +53,6 @@ void execute_command(char *command, char **args){
         clear();
     }
     else{
-        printf("Working on that... \n");
+        execute_process(command, args);
     }
 }
