@@ -31,7 +31,7 @@ void get_args(char* args, char* command_full){
         args[strlen(command_full)] = '\0';
     }
     else{
-        args = NULL;
+        args[0] = '\0';
     }
 }
 
