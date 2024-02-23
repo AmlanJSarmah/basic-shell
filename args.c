@@ -35,10 +35,15 @@ void get_args(char* args, char* command_full){
     }
 }
 
-void parse_args(char *args[], char *args_){
+void parse_args(char *args[], char *args_, char* command){
     if(args_ != NULL){
         int index = 0;
         char* token = strtok(args_," ");
+        if(!(strcmp("cd",command) == 0)){
+            // By default the first argument is command name in args list
+            args[index] = command;
+            index++;
+        }
         args[index] = token;
         while(token != NULL ){
             index++;
