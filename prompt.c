@@ -6,6 +6,7 @@
 #include "./headers/const.h"
 
 void display_prompt(){
+    int err_status = errno;
     char* user_name = getlogin();
     char current_working_directory[BUF_SIZE];
     getcwd(current_working_directory, sizeof(current_working_directory));
@@ -13,7 +14,7 @@ void display_prompt(){
         perror("Cannot Get Working Directory");
         exit(EXIT_FAILURE);
     }
-    if(errno == 0)
+    if(err_status == 0)
         printf(" (%s) %s  ", user_name, current_working_directory);
     else
         printf(" (%s) %s  ", user_name, current_working_directory);

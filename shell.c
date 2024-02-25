@@ -3,6 +3,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <sys/wait.h>
+#include <errno.h>
 #include "./headers/shell.h"
 #include "./headers/const.h"
 #include "./headers/shell_commands.h"
@@ -11,7 +12,7 @@ void input_command(char* command){
     ssize_t ret = read(STD_IN, command, BUF_SIZE);
     if(ret == -1){
         perror("READ");
-        exit(1);
+        exit(EXIT_FAILURE);
     }
     command[ret - 1] = '\0';
 }
@@ -20,17 +21,20 @@ void execute_process(char *command, char **args){
     pid_t pid = fork();
     if(pid == -1){
         perror("FORK");
-        exit(1);
+        exit(EXIT_FAILURE);
     }
-    else if(pid == 0){
+    else if(!pid){
         if(execvp(command,args) == -1){
-            perror("EXEC\n");
+            perror("EXEC ");
+            exit(EXIT_FAILURE);
         }
-        exit(0);
+        exit(EXIT_SUCCESS);
     }
     else{
-        wait(NULL);
-        return;
+        int status;
+        wait(&status);
+        if(WIFEXITED(status))
+            errno = status;
     }
 }
 
@@ -47,7 +51,7 @@ void execute_command(char *command, char **args){
         cd(args);
     }
     else if(command_no == 1){
-        exit(0);
+        exit(EXIT_SUCCESS);
     }
     else if(command_no == 2){
         clear();
