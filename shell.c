@@ -47,14 +47,19 @@ void execute_command(char *command, char **args){
             break;
         }
     }
-    if(command_no == 0)
-        cd(args);
-    else if(command_no == 1)
-        exit(EXIT_SUCCESS);
-    else if(command_no == 2)
-        clear();
-    else if(command_no == 3)
-        return;
-    else
-        execute_process(command, args);
+    switch(command_no){
+        case 0:
+            cd(args);
+            break;
+        case 1:
+            exit(EXIT_SUCCESS);
+        case 2:
+            clear();
+            break;
+        case 3:
+            return;
+        default:
+            execute_process(command, args);
+            break;
+    }
 }
