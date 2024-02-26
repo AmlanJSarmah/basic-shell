@@ -5,6 +5,6 @@
 #define STD_OUT 1
 #define BUF_SIZE 1024
 #define ARGS_MAX  20
-#define NUMBER_OF_SHELL_COMMANDS 3
+#define NUMBER_OF_SHELL_COMMANDS 4
 
 #endif

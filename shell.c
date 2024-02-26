@@ -40,23 +40,21 @@ void execute_process(char *command, char **args){
 
 void execute_command(char *command, char **args){
     int command_no = -1;
-    char* shell_built_in_commands[NUMBER_OF_SHELL_COMMANDS] = {"cd", "exit", "clear"}; 
+    char* shell_built_in_commands[NUMBER_OF_SHELL_COMMANDS] = {"cd", "exit", "clear", "\0"}; 
     for(int i = 0; i < NUMBER_OF_SHELL_COMMANDS; i++){
         if(strcmp(command, shell_built_in_commands[i]) == 0){
             command_no = i;
             break;
         }
     }
-    if(command_no == 0){
+    if(command_no == 0)
         cd(args);
-    }
-    else if(command_no == 1){
+    else if(command_no == 1)
         exit(EXIT_SUCCESS);
-    }
-    else if(command_no == 2){
+    else if(command_no == 2)
         clear();
-    }
-    else{
+    else if(command_no == 3)
+        return;
+    else
         execute_process(command, args);
-    }
 }
