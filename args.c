@@ -38,14 +38,20 @@ void get_args(char* args, char* command_full){
 void parse_args(char *args[], char *args_, char* command){
     if(args_ != NULL){
         // check if there is a quote in the inserted command
-        //int quote_marker_start = -1;
-        //int quote_marker_end = -1;
-        //for(int i = 0; args_[i] != '\0'; i++){
-        //    if(args_[i] == '"' && quote_marker_start == -1)
-        //        quote_marker_start = i;
-        //    if(args_[i] == '"' && quote_marker_start != -1) 
-        //        quote_marker_end = i;
-        //}
+        int quote_marker_start = -1;
+        int quote_marker_end = -1;
+        for(int i = 0; args_[i] != '\0'; i++){
+            if(args_[i] == '"' && quote_marker_start == -1){
+                quote_marker_start = i;
+                continue;
+            }
+            if(args_[i] == '"' && quote_marker_start != -1){
+                quote_marker_end = i;
+                continue;
+            }
+        }
+        if(quote_marker_end == -1)
+            quote_marker_start = -1;
         // split the string
         int index = 0;
         char* token = strtok(args_," ");
