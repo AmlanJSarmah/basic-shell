@@ -1,11 +1,25 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
 #include "./headers/prompt.h"
 #include "./headers/args.h"
 #include "./headers/const.h"
 #include "./headers/shell.h"
 #include "./headers/shell_commands.h"
 
+
 int main(){
     clear();
+
+    // sets the home directory
+    // char* HOME_DIRECTORY;
+    // HOME_DIRECTORY = getcwd(HOME_DIRECTORY, BUF_SIZE);
+    // if(HOME_DIRECTORY == NULL){
+    //     perror("GETCWD");
+    //     exit(EXIT_FAILURE);
+    // }
+
+    // shell loop
     while(1){
         char command[BUF_SIZE];
         char command_main[BUF_SIZE];
