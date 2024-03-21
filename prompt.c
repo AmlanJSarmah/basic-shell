@@ -9,14 +9,14 @@ void display_prompt(){
     int err_status = errno;
     char* user_name = getlogin();
     char current_working_directory[BUF_SIZE];
-    char* status= getcwd(current_working_directory, sizeof(current_working_directory));
-    if(status == NULL){
+    char* cwd= getcwd(current_working_directory, sizeof(current_working_directory));
+    if(cwd == NULL){
         perror("Cannot Get Working Directory");
         exit(EXIT_FAILURE);
     }
     if(err_status == 0)
-        printf(" (%s) %s  ", user_name, current_working_directory);
+        printf(" (%s) %s  ", user_name, cwd);
     else
-        printf(" (%s) %s  ", user_name, current_working_directory);
+        printf(" (%s) %s  ", user_name, cwd);
     fflush(stdout);
 }

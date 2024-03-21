@@ -1,6 +1,6 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
+// #include <stdio.h>
+// #include <stdlib.h>
+// #include <unistd.h>
 #include "./headers/prompt.h"
 #include "./headers/args.h"
 #include "./headers/const.h"
