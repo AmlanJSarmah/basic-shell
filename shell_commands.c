@@ -4,6 +4,7 @@
 #include <string.h>
 #include <unistd.h>
 #include "./headers/shell_commands.h"
+#include "./headers/const.h"
 
 void clear(){
     //printf("\e[1;1H\e[2J"); //we use this if we don't want platform specific code
@@ -16,7 +17,7 @@ void cd(char* path[]){
         count += 1;
     if(count == 1){
         if(strcmp(path[0], "~") == 0){
-            path[0] = "/home/";
+            path[0] = HOME_DIR;
         }
         int ret = chdir(path[0]);
         if(ret == -1 && errno == ENOENT){
