@@ -9,7 +9,7 @@ void display_prompt(){
     int err_status = errno;
     char* user_name = getlogin();
     char current_working_directory[BUF_SIZE];
-    if(getcwd(current_working_directory, sizeof(current_working_directory)) == NULL){
+    if(getcwd(current_working_directory, BUF_SIZE) == NULL){
         perror("Cannot Get Working Directory");
         exit(EXIT_FAILURE);
     }
