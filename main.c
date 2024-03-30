@@ -11,10 +11,7 @@ int main(){
     clear();
 
     // sets the home directory
-    if(getcwd(HOME_DIR, BUF_SIZE) == NULL){
-        perror("GETCWD");
-        exit(EXIT_FAILURE);
-    }
+    set_home_dir();
 
     // shell loop
     while(1){

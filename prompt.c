@@ -19,3 +19,10 @@ void display_prompt(){
         printf(" (%s) %s  ", user_name, current_working_directory);
     fflush(stdout);
 }
+
+void set_home_dir(){
+    if(getcwd(HOME_DIR, BUF_SIZE) == NULL){
+        perror("GETCWD");
+        exit(EXIT_FAILURE);
+    }
+}
