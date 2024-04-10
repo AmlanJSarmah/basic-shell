@@ -4,9 +4,16 @@
 #include <stdlib.h>
 #include <sys/wait.h>
 #include <errno.h>
+#include <signal.h>
 #include "./headers/shell.h"
 #include "./headers/const.h"
 #include "./headers/shell_commands.h"
+
+void set_signal(){
+   signal(SIGINT, SIG_IGN);
+   signal(SIGQUIT, SIG_IGN);
+   signal(SIGTSTP, SIG_IGN);
+}
 
 void input_command(char* command){
     ssize_t ret = read(STD_IN, command, BUF_SIZE);

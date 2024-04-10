@@ -12,6 +12,7 @@ int main(){
 
     // sets the home directory
     set_home_dir();
+    set_signal();
 
     // shell loop
     while(1){
