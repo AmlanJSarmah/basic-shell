@@ -5,7 +5,6 @@
 #include <sys/wait.h>
 #include <errno.h>
 #include <signal.h>
-#include <ctype.h>
 #include "./headers/shell.h"
 #include "./headers/const.h"
 #include "./headers/shell_commands.h"
