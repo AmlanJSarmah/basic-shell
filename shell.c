@@ -5,18 +5,28 @@
 #include <sys/wait.h>
 #include <errno.h>
 #include <signal.h>
+#include <ctype.h>
 #include "./headers/shell.h"
 #include "./headers/const.h"
 #include "./headers/shell_commands.h"
 
 void set_signal(){
-   signal(SIGINT, SIG_IGN);
-   signal(SIGQUIT, SIG_IGN);
-   signal(SIGTSTP, SIG_IGN);
+   if(signal(SIGINT, SIG_IGN) == SIG_ERR){
+       perror("SIG:");
+       exit(EXIT_FAILURE);
+   }
+   if(signal(SIGQUIT, SIG_IGN) == SIG_ERR){
+       perror("SIG:");
+       exit(EXIT_FAILURE);
+   }
+   if(signal(SIGTSTP, SIG_IGN) == SIG_ERR){
+       perror("SIG:");
+       exit(EXIT_FAILURE);
+   }
 }
 
 void input_command(char* command){
-    ssize_t ret = read(STD_IN, command, BUF_SIZE);
+    ssize_t ret = read(STDIN_FILENO, command, BUF_SIZE);
     if(ret == -1){
         perror("READ");
         exit(EXIT_FAILURE);
