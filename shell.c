@@ -10,18 +10,18 @@
 #include "./headers/shell_commands.h"
 
 void set_signal(){
-   if(signal(SIGINT, SIG_IGN) == SIG_ERR){
-       perror("SIG:");
-       exit(EXIT_FAILURE);
-   }
-   if(signal(SIGQUIT, SIG_IGN) == SIG_ERR){
-       perror("SIG:");
-       exit(EXIT_FAILURE);
-   }
-   if(signal(SIGTSTP, SIG_IGN) == SIG_ERR){
-       perror("SIG:");
-       exit(EXIT_FAILURE);
-   }
+    if(signal(SIGINT, SIG_IGN) == SIG_ERR){
+        perror("SIG:");
+        exit(EXIT_FAILURE);
+    }
+    if(signal(SIGQUIT, SIG_IGN) == SIG_ERR){
+        perror("SIG:");
+        exit(EXIT_FAILURE);
+    }
+    if(signal(SIGTSTP, SIG_IGN) == SIG_ERR){
+        perror("SIG:");
+        exit(EXIT_FAILURE);
+    }
 }
 
 void input_command(char* command){
